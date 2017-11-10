@@ -217,7 +217,7 @@ void dzielenie()
 void modulo()
 {
 	buforS += "100";
-	std::cout << "JEZUS CO TU NAPISAC (max 65535): ";
+	std::cout << "Podaj dzielna i dzielnik do dzielenia z reszta (max 65535): ";
 	int l1, l2;
 	std::cin >> l1 >> l2;
 	if ((l1 || l2) > 65535)
