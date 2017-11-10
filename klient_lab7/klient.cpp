@@ -231,6 +231,16 @@ void modulo()
 void rownosc()
 {
 	buforS += "101";
+	std::cout << "Podaj dwie liczby do porownania (max 65535): ";
+	int l1, l2;
+	std::cin >> l1 >> l2;
+	if ((l1 || l2) > 65535)
+	{
+		std::cout << "Liczba zbyt duza. Koniec programu.\n";
+		exit(1);
+	}
+	buforS += decimalToBinary(l1);
+	buforS += decimalToBinary(l2);
 }
 void potegowanie()
 {
@@ -239,6 +249,16 @@ void potegowanie()
 void silnia()
 {
 	buforS += "111";
+	std::cout << "Podaj liczbe z ktorej obliczyc silnie (max 12): ";
+	int l1, l2;
+	std::cin >> l1 >> l2;
+	if ((l1 || l2) > 65535)
+	{
+		std::cout << "Liczba zbyt duza. Koniec programu.\n";
+		exit(1);
+	}
+	buforS += decimalToBinary(l1);
+	buforS += decimalToBinary(l2);
 }
 std::string decimalToBinary(int liczba)
 {
