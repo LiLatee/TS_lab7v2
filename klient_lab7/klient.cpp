@@ -1,3 +1,7 @@
+//Autorski protokó³ internetowy
+//Wszelkie prawa zastrze¿one
+//Napisany przez Marcina Hradowicza i Jakuba Hamerliñskiego
+
 #include <winsock.h>
 #include <cstdio>
 #include <iostream>
