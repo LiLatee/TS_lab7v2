@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <iostream>
 #include <string>
-
+//to napisa³ marcin
 #define MY_PORT 2500
 
 void dodawanie();
