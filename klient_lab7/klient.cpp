@@ -1,10 +1,14 @@
+//Autorski protokó³ internetowy
+//Wszelkie prawa zastrze¿one
+//Napisany przez Marcina Hradowicza i Jakuba Hamerliñskiego
+
 #include <winsock.h>
 #include <cstdio>
 #include <iostream>
 #include <string>
 //to napisa³ marcin
 #define MY_PORT 2500
-
+// to napisa³em ja - Kuba
 void dodawanie();
 void odejmowanie();
 void mnozenie();
@@ -13,7 +17,7 @@ void modulo();
 void rownosc();
 void potegowanie();
 void silnia();
-std::string decimalToBinary(int liczba);
+std::string decimalToBinary(int liczba); // funkcja s³u¿¹ca do zamiany liczby na ci¹g zer i jedynek
 
 //bufor danych do wys³ania w postaci string - segment
 std::string buforS;
@@ -83,16 +87,17 @@ int main(int argc, char *argv[])
 
 	//char* bufor;
 	//bufor = (char*)malloc(65354);
+	poczatek:
 	int wybor;
 	std::cout << "Operacje:\n";
-	std::cout << "1. Dodawanie\n2"; //000
-	std::cout << "2. Odejmowanie\n2"; //001
-	std::cout << "3. Mnozenie\n2"; //010
-	std::cout << "4. Dzielenie\n2"; //011
-	std::cout << "5. Modulo\n2"; //100
-	std::cout << "6. Rownosc\n2"; //101
-	std::cout << "7. Potegowanie\n2"; //110
-	std::cout << "8. Silnia\n2"; //111
+	std::cout << "1. Dodawanie\n"; //000
+	std::cout << "2. Odejmowanie\n"; //001
+	std::cout << "3. Mnozenie\n"; //010
+	std::cout << "4. Dzielenie\n"; //011
+	std::cout << "5. Modulo\n"; //100
+	std::cout << "6. Rownosc\n"; //101
+	std::cout << "7. Potegowanie\n"; //110
+	std::cout << "8. Silnia\n"; //111
 	
 	std::cin >> wybor;
 	switch (wybor)
@@ -136,6 +141,10 @@ int main(int argc, char *argv[])
 		{
 			silnia();
 			break;
+		}
+		default:
+		{
+			goto poczatek;
 		}
 	}
 
@@ -217,7 +226,7 @@ void dzielenie()
 void modulo()
 {
 	buforS += "100";
-	std::cout << "JEZUS CO TU NAPISAC (max 65535): ";
+	std::cout << "Podaj dzielna i dzielnik do dzielenia z reszta (max 65535): ";
 	int l1, l2;
 	std::cin >> l1 >> l2;
 	if ((l1 || l2) > 65535)
@@ -231,6 +240,16 @@ void modulo()
 void rownosc()
 {
 	buforS += "101";
+	std::cout << "Podaj dwie liczby do porownania (max 65535): ";
+	int l1, l2;
+	std::cin >> l1 >> l2;
+	if ((l1 || l2) > 65535)
+	{
+		std::cout << "Liczba zbyt duza. Koniec programu.\n";
+		exit(1);
+	}
+	buforS += decimalToBinary(l1);
+	buforS += decimalToBinary(l2);
 }
 void potegowanie()
 {
@@ -239,6 +258,16 @@ void potegowanie()
 void silnia()
 {
 	buforS += "111";
+	std::cout << "Podaj liczbe z ktorej obliczyc silnie (max 12): ";
+	int l1, l2;
+	std::cin >> l1 >> l2;
+	if ((l1 || l2) > 65535)
+	{
+		std::cout << "Liczba zbyt duza. Koniec programu.\n";
+		exit(1);
+	}
+	buforS += decimalToBinary(l1);
+	buforS += decimalToBinary(l2);
 }
 std::string decimalToBinary(int liczba)
 {
