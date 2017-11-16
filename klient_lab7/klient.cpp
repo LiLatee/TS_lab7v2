@@ -8,7 +8,7 @@
 #include <string>
 
 #define MY_PORT 2500
-
+// to napisa³em ja - Kuba
 void dodawanie();
 void odejmowanie();
 void mnozenie();
